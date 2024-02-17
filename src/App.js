@@ -13,14 +13,16 @@ import MoviePage from "./pages/MoviePage";
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/signup" element={<Register/>} />
-        <Route exact path="/player" element={<Player />} />
-        <Route exact path="/tv" element={<TvShow />} />
-        <Route exact path="/" element={<Netflix />} />
-        <Route exact path="/movie" element={<MoviePage />} />
-      </Routes>
+<Routes>
+  <Route exact path="/login" element={<Login />} />
+  <Route exact path="/signup" element={<Register />} />
+  <Route exact path="/player" element={<Player />} />
+  <Route exact path="/tv" element={<TvShow />} />
+  <Route exact path="/" element={<Netflix />} />
+  <Route exact path="/movie" element={<MoviePage />} />
+  <Route exact path="/netflix-project" element={<Netflix />} /> {/* Add this line */}
+</Routes>
+
 
     </BrowserRouter>
   );
