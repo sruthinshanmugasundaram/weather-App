@@ -52,6 +52,7 @@ const Login = () => {
               />
               <button onClick={ handleLogin}>Login</button>
             </div>
+            <h2>Doesn't have an account already? Please sign in.</h2>
           </div>
         </div>
       </div>
