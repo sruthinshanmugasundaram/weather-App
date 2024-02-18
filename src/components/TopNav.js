@@ -132,7 +132,7 @@ const NavContainer = styled.div`
       border: none;
       cursor: pointer;
       border-radius: 10%;
-      padding: 1rem;
+      padding: 1px;
       &:focus {
         outline: none;
       }
