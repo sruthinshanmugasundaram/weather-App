@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import { firebaseAuth } from "../utils/firebase-config";
-
 import { onAuthStateChanged, signOut } from "firebase/auth";
+import { FaLanguage } from "react-icons/fa";
 
 const TopNav = ({ isScrolled }) => {
+  const [language, setLanguage] = useState("English");
+  const navigate = useNavigate();
+
   const navlinks = [
     { name: "Home", link: "/" },
     { name: "Tv Show", link: "/tv" },
@@ -13,12 +16,22 @@ const TopNav = ({ isScrolled }) => {
     { name: "Movies", link: "/movies" },
   ];
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(firebaseAuth, (currentUser) => {
+      if (!currentUser) navigate("/login");
+    });
 
-  const navigate = useNavigate()
+    return () => unsubscribe(); // Cleanup function for useEffect
+  }, [navigate]); // Dependency array to ensure useEffect runs only when navigate changes
 
-  onAuthStateChanged(firebaseAuth, (currentUser) => {
-    if (!currentUser) navigate("/login");
-  });
+  const handleLanguageChange = (e) => {
+    setLanguage(e.target.value);
+  };
+
+  const handleSignOut = () => {
+    signOut(firebaseAuth);
+    navigate("/login");
+  };
 
   return (
     <NavContainer>
@@ -31,20 +44,23 @@ const TopNav = ({ isScrolled }) => {
             />
           </div>
           <ul className="links">
-            {navlinks.map(({ name, link }) => {
-              return (
-                <li key={name}>
-                  <Link to={link}>{name}</Link>
-                </li>
-              );
-            })}
+            {navlinks.map(({ name, link }) => (
+              <li key={name}>
+                <Link to={link}>{name}</Link>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div className="rightSide">
-          <button onClick={()=>signOut(firebaseAuth)}>
-            SignOut
-          </button>
+          <select value={language} onChange={handleLanguageChange}>
+            <option value="English">English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="French">French</option>
+            <option value="German">German</option>
+          </select>
+          <FaLanguage className="language-icon" />
+          <button onClick={handleSignOut}><strong>Sign Out</strong></button>
         </div>
       </nav>
     </NavContainer>
@@ -52,14 +68,14 @@ const TopNav = ({ isScrolled }) => {
 };
 
 const NavContainer = styled.div`
-  .notScroll{
+  .notScroll {
     display: flex;
   }
-  .scrolled{
+  .scrolled {
     display: flex;
     background-color: black;
   }
-  nav{
+  nav {
     position: sticky;
     top: 0;
     height: 6rem;
@@ -69,55 +85,63 @@ const NavContainer = styled.div`
     z-index: 2;
     padding: 0.4rem;
     align-items: center;
-   transition: 0.3s ease-in;
-   .leftSide{
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    margin-left: 5rem;
+    transition: 0.3s ease-in;
+    .leftSide {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-left: 5rem;
 
-   .logo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   }
-   img{
-    width: 10rem;
-    height: 2rem;
-   }
-  }
-  .links{
-    display: flex;
-    list-style-type: none;
-    gap: 3rem;
-    li{
-        a{
-            color: white;
-            text-decoration: none;
+      .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      img {
+        width: 10rem;
+        height: 2rem;
+      }
+    }
+    .links {
+      display: flex;
+      list-style-type: none;
+      gap: 3rem;
+      li {
+        a {
+          color: white;
+          text-decoration: none;
         }
+      }
     }
   }
-}
 
-.rightSide{
+  .rightSide {
     display: flex;
     align-items: center;
     gap: 1rem;
     margin-right: 3rem;
     color: white;
-    button{
-        background-color: white;
-        border: none;
-        cursor: pointer;
-        border-radius: 10%;
-        padding :1rem;
-    }&:focus{
-        outline: none;
-    }svg{
-        color: white;
-        font-size: 3rem;
+    select {
+      background-color: white;
+      border: none;
+      border-radius: 10%;
+      padding: 0.5rem;
     }
-}
+    button {
+      background-color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 10%;
+      padding: 1rem;
+      &:focus {
+        outline: none;
+      }
+    }
+    svg {
+      color: white;
+      font-size: 3rem;
+    }
+  }
 `;
 
 export default TopNav;
