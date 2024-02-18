@@ -11,7 +11,7 @@ const Player = () => {
           <div className='backArrow'>
             <BsArrowLeft onClick={()=>navigate(-1)}/>
           </div>
-          <video src='https://res.cloudinary.com/ehizeex-shop/video/upload/v1668377666/NetflixApp/Action_mlw9wx.mp4'
+          <video src='https://cdn.cloudflare.steamstatic.com/steam/apps/256660477/movie480.webm?t=1454603660'
           autoPlay loop controls 
           />
         </div>
