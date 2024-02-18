@@ -19,7 +19,7 @@ function App() {
   <Route exact path="/player" element={<Player />} />
   <Route exact path="/tv" element={<TvShow />} />
   <Route exact path="/" element={<Netflix />} />
-  <Route exact path="/movie" element={<MoviePage />} />
+  <Route exact path="/movies" element={<MoviePage />} />
   <Route exact path="/netflix-project" element={<Netflix />} /> {/* Add this line */}
 </Routes>
 
