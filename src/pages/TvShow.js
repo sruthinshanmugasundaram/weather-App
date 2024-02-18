@@ -16,34 +16,7 @@ const TvShow = ({ title, description, genre, rating, imageUrl }) => {
 const TvShowList = () => {
   // Array of TV show data
   const tvShows = [
-    {
-      title: 'Breaking Bad',
-      description: 'A high school chemistry teacher turned methamphetamine manufacturer.',
-      genre: 'Crime, Drama, Thriller',
-      rating: '9.5/10',
-      imageUrl: 'https://rukminim2.flixcart.com/image/850/1000/poster/k/v/f/medium-andph289-ananyadesigns-breaking-bad-wall-poster-original-imae8afzjpggwncy.jpeg?q=20&crop=false',
-    },
-    {
-      title: 'Friends',
-      description: 'Follows the personal and professional lives of six twenty to thirty-something-year-old friends living in Manhattan.',
-      genre: 'Comedy, Romance',
-      rating: '8.9/10',
-      imageUrl: 'https://www.themoviedb.org/t/p/original/f496cm9enuEsZkSPzCwnTESEK5s.jpg',
-    },
-    {
-      title: 'Stranger Things',
-      description: 'When a young boy disappears, his mother, a police chief, and his friends must confront terrifying supernatural forces in order to get him back.',
-      genre: 'Drama, Fantasy, Horror',
-      rating: '8.7/10',
-      imageUrl: 'https://www.themoviedb.org/t/p/original/x2LSRK2Cm7MZhjluni1msVJ3wDF.jpg',
-    },
-    {
-      title: 'Game of Thrones',
-      description: 'Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.',
-      genre: 'Action, Adventure, Drama',
-      rating: '9.3/10',
-      imageUrl: 'https://www.themoviedb.org/t/p/original/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg',
-    },
+    
     {
       title: 'The Office',
       description: 'A mockumentary on a group of typical office workers, where the workday consists of ego clashes, inappropriate behavior, and tedium.',
