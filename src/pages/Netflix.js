@@ -186,11 +186,12 @@ const Netflix = () => {
             </div>
           </div>
         </div>
-        <div className="rightSide" style={{ display: 'flex', justifyContent: 'center' }}>
-  <button onClick={handleSignOut} style={{ fontWeight: 'bold' }}>Sign Out</button>
-</div>
+        
 
       </div>
+<div className="rightSide" style={{ display: 'flex', justifyContent: 'center',padding: '20px' }}>
+  <button onClick={handleSignOut} style={{ fontWeight: 'bold', fontSize:"20px", padding:"10px" }}>Sign Out</button>
+</div>
     </div>
   );
 }
