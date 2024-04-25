@@ -1,0 +1,68 @@
+.left-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh; /* Set height to 100% of the viewport height */
+    width: 5rem;
+    background-color: #0b2ab5;
+    overflow-y: auto; /* Add overflow-y to enable scrolling if content exceeds height */
+  }
+  
+  .nav-item {
+    display: block;
+    text-align: left;
+    padding: 20px; /* Increase padding for better spacing */
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Add transition for smoother effect */
+    font-size: 2.5rem;
+    background-color: #0b2ab5;
+    color: #ffffff;
+  }
+  
+  .nav-item:hover {
+    background-color: #ffffff; /* Change background color on hover */
+    color: #0b2ab5;
+  }
+  
+  .nav-item.active {
+    background-color: #ffffff; /* Change background color when active */
+    color: #0b2ab5;
+  }
+  
+  .tabcontent-item {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; /* Adjust gap as needed */
+    margin-left: 5rem; /* Adjust the left margin to match the width of the navbar */
+  }
+  
+  .tabcontent-item.hidden {
+    display: none;
+  }
+  
+  .profile-section,
+  .message-section,
+  .profile-details-section {
+    padding: 10px;
+  }
+  
+  .profile-section {
+    background-color: #f2f2f2; /* Example background color for profile section */
+  }
+  
+  .message-section {
+    background-color: #e6e6e6; /* Example background color for message section */
+  }
+  
+  .profile-details-section {
+    background-color: #d9d9d9; /* Example background color for profile details section */
+  }
+  
+  .profile-section h3,
+  .message-section h3,
+  .profile-details-section h3 {
+    margin-top: 0; /* Remove default margin for consistency */
+  }
+  
